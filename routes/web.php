@@ -19,6 +19,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('master-admin', function () {
     return "<h1>Halaman Master Admin</h1>";
-})->middleware(["auth", "verified", "role:Master Admin"]);
+})->middleware(["auth", "verified", "role:Master Admin"])->name("master-admin");
+
+Route::get('admin', function () {
+    return "<h1>Halaman Admin</h1>";
+})->middleware(["auth", "verified", "role:Admin|Master Admin"])->name("admin");
 
 require __DIR__.'/auth.php';
