@@ -25,4 +25,8 @@ Route::get('admin', function () {
     return "<h1>Halaman Admin</h1>";
 })->middleware(["auth", "verified", "role:Admin|Master Admin"])->name("admin");
 
+Route::get('content', function () {
+    return "<h1>Halaman Show Content</h1>";
+})->middleware(["auth", "verified", "permission:Show Content"])->name("content");
+
 require __DIR__.'/auth.php';
